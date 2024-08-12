@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class DuplicateDifference {
+    
+    public static int findDuplicateDifference(int[] A) {
+        Set<Integer> seen = new HashSet<>();
+        Integer firstDuplicate = null;
+        Integer lastDuplicate = null;
+
+        for (int num : A) {
+            if (seen.contains(num)) {
+                if (firstDuplicate == null) {
+                    firstDuplicate = num;
+                }
+                lastDuplicate = num;
+            } else {
+                seen.add(num);
+            }
+        }
+
+        if (firstDuplicate != null && lastDuplicate != null) {
+            return lastDuplicate - firstDuplicate;
+        } else {
+            System.out.println("No duplicates found.");
+            return 0; 
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] A = {3, 5, -1, 7, 5, 3, 9, 10, -1};
+
+        int difference = findDuplicateDifference(A);
+
+        if (difference != 0) {
+            System.out.println("Difference between first and last duplicate: " + difference);
+        }
+    }
+}
