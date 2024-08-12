@@ -1,0 +1,59 @@
+class Student {
+    private String name;
+    private String regNo;
+    private String dept;
+    private int year;
+    private int semester;
+    private int mark1, mark2, mark3, mark4, mark5, mark6;
+    private int total;
+    private double average;
+
+    public void getDetails(String name, String regNo, String dept, int year, int semester, 
+                           int mark1, int mark2, int mark3, int mark4, int mark5, int mark6) {
+        this.name = name;
+        this.regNo = regNo;
+        this.dept = dept;
+        this.year = year;
+        this.semester = semester;
+        this.mark1 = mark1;
+        this.mark2 = mark2;
+        this.mark3 = mark3;
+        this.mark4 = mark4;
+        this.mark5 = mark5;
+        this.mark6 = mark6;
+
+        calculateTotalAndAverage();
+    }
+
+    private void calculateTotalAndAverage() {
+        this.total = mark1 + mark2 + mark3 + mark4 + mark5 + mark6;
+        this.average = total / 6.0;
+    }
+
+    public void Display() {
+        System.out.println("Name: " + name);
+        System.out.println("Reg. No.: " + regNo);
+        System.out.println("Department: " + dept);
+        System.out.println("Year: " + year);
+        System.out.println("Semester: " + semester);
+        System.out.println("Mark 1: " + mark1);
+        System.out.println("Mark 2: " + mark2);
+        System.out.println("Mark 3: " + mark3);
+        System.out.println("Mark 4: " + mark4);
+        System.out.println("Mark 5: " + mark5);
+        System.out.println("Mark 6: " + mark6);
+        System.out.println("Total Marks: " + total);
+        System.out.println("Average Marks: " + average);
+        System.out.println("Percentage: " + average + "%");
+    }
+}
+
+public class StudentMarks {
+    public static void main(String[] args) {
+        Student student = new Student();
+
+        student.getDetails("John Doe", "2024A001", "Computer Science", 3, 1, 85, 90, 78, 88, 76, 95);
+
+        student.Display();
+    }
+}
